@@ -1,0 +1,26 @@
+{
+  "name": "router-package-npm",
+  "version": "1.0.0",
+  "description": "A simple utility for creating vanilla http servers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwuwei/router-package-npm.git"
+  },
+  "author": "Hugo A Guerra <guerrahugoa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexwuwei/router-package-npm/issues"
+  },
+  "homepage": "https://github.com/alexwuwei/router-package-npm#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "eslint": "^2.4.0",
+    "gulp": "^3.9.1",
+    "mocha": "^2.4.5"
+  }
+}
