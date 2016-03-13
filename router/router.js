@@ -26,8 +26,8 @@ Router.prototype.del = function(route, cb) {
 }
 
 Router.prototype.route = function() {
-  return function (req, res) {
-    var routeFunction  = this.routes[req.method][req.url]
-    routeFunction(req, res)
-  }
+  return (req, res) => {
+    var routeFunction  = this.routes[req.method][req.url];
+    routeFunction(req, res);
+  };
 }

@@ -18,8 +18,13 @@ describe('testing GET method', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should successfully hit a defined route when submitting a GET request', function(done) {
-
-  });
+    request('localhost:3000')
+    .get('/products')
+    .end(function (err, res) {
+      expect(res).to.have.status(200);
+      //more tests
+      done()
+    });
 });
 
 describe('testing POST method', function() {
@@ -28,7 +33,13 @@ describe('testing POST method', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should successfully hit a defined route when submitting a POST request', function(done) {
-
+    request('localhost:3000')
+    .get('/products')
+    .end(function (err, res) {
+      expect(res).to.have.status(200);
+      //more tests
+      done()
+    });
   });
 });
 
@@ -38,7 +49,13 @@ describe('testing PUT method', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should successfully hit a defined route when submitting a PUT request', function(done) {
-
+    request('localhost:3000')
+    .get('/products')
+    .end(function (err, res) {
+      expect(res).to.have.status(200);
+      //more tests
+      done()
+    });
   });
 });
 
@@ -48,7 +65,13 @@ describe('testing DEL method', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should successfully hit a defined route when submitting a DEL request', function(done) {
-
+    request('localhost:3000')
+    .get('/products')
+    .end(function (err, res) {
+      expect(res).to.have.status(200);
+      //more tests
+      done()
+    });
   });
 });
 
@@ -58,7 +81,13 @@ describe('testing route creation', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should successfully create a route along with a defined REST method', function(done) {
-
+    request('localhost:3000')
+    .get('/products')
+    .end(function (err, res) {
+      expect(res).to.have.status(200);
+      //more tests
+      done()
+    });
   });
 });
 
@@ -68,6 +97,12 @@ describe('testing invalid resource', function() {
     http.createServer(productsRouter.route()).listen(3000)
   });
   it('should return a 404 error when requesting an invalid route', function(done) {
-
+    request('localhost:3000')
+    .get('/productsdfsdafwefwe')
+    .end(function (err, res) {
+      expect(res).to.have.status(404);
+      //more tests
+      done()
+    });
   });
 });
