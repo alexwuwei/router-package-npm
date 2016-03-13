@@ -7,6 +7,7 @@ chai.use(chaiHttp);
 var fs = require('fs');
 var expect = chai.expect;
 var request = chai.request;
+var http = require('http');
 // require(__dirname + '/../routes/route-handle.js');
 var testRouter = require(__dirname + '/../router/router.js');
 
@@ -15,30 +16,34 @@ var testRouter = require(__dirname + '/../router/router.js');
 describe('testing GET method', function() {
   before(function(){
     var productsRouter = new testRouter;
-    http.createServer(productsRouter.route()).listen(3000)
+    http.createServer(productsRouter.route()).listen(3000);
   });
   it('should successfully hit a defined route when submitting a GET request', function(done) {
     request('localhost:3000')
     .get('/products')
     .end(function (err, res) {
+      expect(err).to.eql(null);
       expect(res).to.have.status(200);
       //more tests
-      done()
+      done();
     });
+  });
 });
 
 describe('testing POST method', function() {
   before(function(){
     var productsRouter = new testRouter;
-    http.createServer(productsRouter.route()).listen(3000)
+    http.createServer(productsRouter.route()).listen(3000);
   });
   it('should successfully hit a defined route when submitting a POST request', function(done) {
     request('localhost:3000')
-    .get('/products')
+    .post('/products')
+    .set({'Product':'Whitewater Raft'})
     .end(function (err, res) {
+      expect(err).to.eql(null);
       expect(res).to.have.status(200);
       //more tests
-      done()
+      done();
     });
   });
 });
@@ -46,11 +51,12 @@ describe('testing POST method', function() {
 describe('testing PUT method', function() {
   before(function(){
     var productsRouter = new testRouter;
-    http.createServer(productsRouter.route()).listen(3000)
+    http.createServer(productsRouter.route()).listen(3000);
   });
   it('should successfully hit a defined route when submitting a PUT request', function(done) {
     request('localhost:3000')
-    .get('/products')
+    .put('/products/raft')
+    .set({'update': }) //revise
     .end(function (err, res) {
       expect(res).to.have.status(200);
       //more tests
@@ -66,11 +72,12 @@ describe('testing DEL method', function() {
   });
   it('should successfully hit a defined route when submitting a DEL request', function(done) {
     request('localhost:3000')
-    .get('/products')
+    .del('/products/raft')
     .end(function (err, res) {
+      expect(err).to.eql(null);
       expect(res).to.have.status(200);
       //more tests
-      done()
+      done();
     });
   });
 });
