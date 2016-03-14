@@ -27,12 +27,12 @@ Router.prototype.del = function(route, cb) {
 
 Router.prototype.route = function() {
   return (req, res) => {
-    var routeFunction  = this.routes[req.method][req.url];
-    if (routeFunction instanceof Function) {
-      routeFunction(req, res);
-    } else {
-      res.writeHead(404, {'Content-Type': 'application/json'});
-      res.end('404, Resource Not Found :(');
-    }
+    var routeFunction  = this.routes[req.method][req.url]
+    // if (routeFunction instanceof Function) {
+      routeFunction(req, res)
+    // } else {
+    //   res.writeHead(404, {'Content-Type': 'application/json'});
+    //   res.end('404, Resource Not Found :(');
+    // }
   };
 };
