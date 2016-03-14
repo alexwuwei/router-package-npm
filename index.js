@@ -10,8 +10,3 @@ module.exports = function() {
   };
   return router;
 };
-
-
-// var app = express()
-// var app = myFramework() corresponds to name in package.json
-// myFramework.listen(3000);

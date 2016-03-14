@@ -4,11 +4,9 @@ var mocha = require('mocha');
 var chai = require('chai');
 var chaiHttp = require('chai-http');
 chai.use(chaiHttp);
-var fs = require('fs');
 var expect = chai.expect;
 var request = chai.request;
 var http = require('http');
-// require(__dirname + '/../routes/route-handle.js');
 var Router = require(__dirname + '/../router/router');
 
 describe('testing GET method', function() {
@@ -24,16 +22,18 @@ describe('testing GET method', function() {
       res.write('POST route hit');
       res.end();
     });
+    productsRouter.del('/products', function(req,res){
+      res.write('DEL route set for /products');
+      res.end();
+    });
     http.createServer(productsRouter.route()).listen(3000);
   });
   it('should successfully hit a defined route when submitting a GET request', function(done) {
     request('localhost:3000')
     .get('/products')
     .end(function (err, res) {
-      // expect(err).to.equal(null);
       expect(res.text).to.include('GET');
       expect(res).to.have.status(200);
-      //more tests
       done();
     });
   });
@@ -44,32 +44,21 @@ describe('testing GET method', function() {
     .end(function (err, res) {
       expect(err).to.equal(null);
       expect(res).to.have.status(200);
-      //more tests
       done();
     });
   });
   it('should successfully hit a defined route when submitting a DEL request', function(done) {
     request('localhost:3000')
-    .del('/products/raft')
+    .del('/products')
     .end(function (err, res) {
       expect(err).to.equal(null);
       expect(res).to.have.status(200);
-      //more tests
-      done();
-    });
-  });
-  it('should return a 404 error when requesting an invalid route', function(done) {
-    request('localhost:3000')
-    .get('/products/dfsdafwefwe')
-    .end(function (err, res) {
-      expect(res).to.have.status(404);
-      //more tests
       done();
     });
   });
 });
 
-describe('testing route creation', function() {
+describe('testing router creation', function() {
   before(function(){
     var foodRouter = new Router();
     foodRouter.get('/food', function(req, res){

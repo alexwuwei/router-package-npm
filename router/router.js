@@ -5,7 +5,7 @@ var Router = module.exports = function() {
     'GET': {},
     'POST': {},
     'PUT': {},
-    'DEL': {}
+    'DELETE': {}
   };
 };
 
@@ -22,7 +22,7 @@ Router.prototype.put = function(route, cb) {
 };
 
 Router.prototype.del = function(route, cb) {
-  this.routes.DEL[route] = cb;
+  this.routes.DELETE[route] = cb;
 };
 
 Router.prototype.route = function() {
