@@ -28,18 +28,22 @@ Then create the app in your chosen JS file:
 After creating your new router, you'll want to create some routes. Here are some examples:
 
 ####GET Route
-``productsRouter.get('/products', function(req, res) {
+```
+  productsRouter.get('/products', function(req, res) {
   console.log('get route set for products');
   res.write('GET route hit');
   res.end();
-});``
+});
+```
 
 ####POST Route
-``productsRouter.post('/products', function(req,res){
+```
+  productsRouter.post('/products', function(req,res){
   console.log('post route set for /products');
   res.write('POST route hit');
   res.end();
-});``
+});
+```
 
 Keep in mind that you can also create PUT And DELETE routes.
 
@@ -59,4 +63,4 @@ Mocha/Chai testing is integrated into this app! Feel free to check the Mocha/Cha
 
 ##License
 
-MIT. Because MIT is awesome and we are too. 
+MIT. Because MIT is awesome and we are too.
