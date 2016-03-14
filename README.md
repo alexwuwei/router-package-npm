@@ -30,18 +30,18 @@ After creating your new router, you'll want to create some routes. Here are some
 ####GET Route
 ```
   productsRouter.get('/products', function(req, res) {
-  console.log('get route set for products');
-  res.write('GET route hit');
-  res.end();
+    console.log('get route set for products');
+    res.write('GET route hit');
+    res.end();
 });
 ```
 
 ####POST Route
 ```
   productsRouter.post('/products', function(req,res){
-  console.log('post route set for /products');
-  res.write('POST route hit');
-  res.end();
+    console.log('post route set for /products');
+    res.write('POST route hit');
+    res.end();
 });
 ```
 
