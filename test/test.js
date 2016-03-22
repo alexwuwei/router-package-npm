@@ -22,6 +22,11 @@ describe('testing GET method', function() {
       res.write('POST route hit');
       res.end();
     });
+    productsRouter.put('/products', function(req, res) {
+      console.log('put route set for /products');
+      res.write('PUT route hit');
+      res.end();
+    });
     productsRouter.del('/products', function(req,res){
       res.write('DEL route set for /products');
       res.end();
@@ -42,6 +47,16 @@ describe('testing GET method', function() {
     .post('/products')
     .send({'Product':'Raft'})
     .end(function (err, res) {
+      expect(err).to.equal(null);
+      expect(res).to.have.status(200);
+      done();
+    });
+  });
+  it('should successfully hit a defined route when submitting a PUT request', function(done) {
+    request('localhost:3000')
+    .put('/products')
+    .send({'product':'another raft'})
+    .end(function(err, res) {
       expect(err).to.equal(null);
       expect(res).to.have.status(200);
       done();
